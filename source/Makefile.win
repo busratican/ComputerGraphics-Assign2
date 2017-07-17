@@ -1,0 +1,61 @@
+# Project: ProjectAssignment2
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o scene_parser.o matrix.o camera.o group.o sphere.o triangle.o plane.o transformation.o image.o diffuse.o normal.o
+LINKOBJ  = main.o scene_parser.o matrix.o camera.o group.o sphere.o triangle.o plane.o transformation.o image.o diffuse.o normal.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = ProjectAssignment2.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+scene_parser.o: scene_parser.C
+	$(CPP) -c scene_parser.C -o scene_parser.o $(CXXFLAGS)
+
+matrix.o: matrix.C
+	$(CPP) -c matrix.C -o matrix.o $(CXXFLAGS)
+
+camera.o: camera.cpp
+	$(CPP) -c camera.cpp -o camera.o $(CXXFLAGS)
+
+group.o: group.cpp
+	$(CPP) -c group.cpp -o group.o $(CXXFLAGS)
+
+sphere.o: sphere.cpp
+	$(CPP) -c sphere.cpp -o sphere.o $(CXXFLAGS)
+
+triangle.o: triangle.cpp
+	$(CPP) -c triangle.cpp -o triangle.o $(CXXFLAGS)
+
+plane.o: plane.cpp
+	$(CPP) -c plane.cpp -o plane.o $(CXXFLAGS)
+
+transformation.o: transformation.cpp
+	$(CPP) -c transformation.cpp -o transformation.o $(CXXFLAGS)
+
+image.o: image.cpp
+	$(CPP) -c image.cpp -o image.o $(CXXFLAGS)
+
+diffuse.o: diffuse.C
+	$(CPP) -c diffuse.C -o diffuse.o $(CXXFLAGS)
+
+normal.o: normal.C
+	$(CPP) -c normal.C -o normal.o $(CXXFLAGS)
